@@ -11,15 +11,47 @@ import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";  // <== IMPORT
 import IsAnon from "./components/IsAnon";
 
+import AddMoodsPage from "./pages/AddMoodsPage";
+import MoodsList from "./pages/MoodsList";
+import { useEffect, useState } from "react"
+import axios from "axios"
+
+const API_URL = "http://localhost:5005"
+
 function App() {
+  const [moods, setMoods] = useState([])
+  const [filteredMoods, setFilteredMoods] = useState([])
+
+  const getMoods = () => {
+    axios.get(`${API_URL}/api/moods`)
+      .then(response => {
+        setMoods(response.data)
+        setFilteredMoods(response.data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  const filterMoods = (topic) => {
+    const moodsFilteredByTopic = moods.filter(mood => {
+      return mood.topic === topic
+    })
+
+    setFilteredMoods(moodsFilteredByTopic)
+  }  
+
+  useEffect(() => {
+    getMoods()
+  }, [])
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar  moods={moods} filterMoods={filterMoods}/>
       <Routes>      
-        <Route path="/" element={ <HomePage /> } />
-        <Route path="/projects" element={ <IsPrivate><ProjectListPage /> </IsPrivate> } />
-        <Route path="/projects/:projectId" element={ <IsPrivate><ProjectDetailsPage /> </IsPrivate> } />
-        <Route path="/projects/edit/:projectId" element={<IsPrivate><EditProjectPage /> </IsPrivate>} />
+        <Route path="/" element={<MoodsList moods={filteredMoods} /> }/>
+        <Route path="/add-mood" element={<AddMoodsPage getMoods={getMoods} />} />
+        <Route path="/moods" element={ <IsPrivate><ProjectListPage /> </IsPrivate> } />
+        <Route path="/moods/:moodId" element={ <IsPrivate><ProjectDetailsPage /> </IsPrivate> } />
+        <Route path="/moods/edit/:moodId" element={<IsPrivate><EditProjectPage /> </IsPrivate>} />
         
         {/*    ADD    */}
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon> } />
