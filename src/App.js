@@ -47,13 +47,13 @@ function App() {
     <div className="App">
      
       <Navbar  moods={moods} filterMoods={filterMoods}/>
-       <HomePage />
-      <Routes>   
        
-        <Route path="/" element={<MoodsList moods={filteredMoods} /> }/>
+      <Routes>   
+       <Route path="/" element={<HomePage />}/>
+        <Route path="/listmood" element={<MoodsList moods={filteredMoods} /> }/>
         <Route path="/add-mood" element={<AddMoodsPage getMoods={getMoods} />} />
-        <Route path="/moods" element={ <IsPrivate><ProjectListPage /> </IsPrivate> } />
-        <Route path="/moods/:moodId" element={ <IsPrivate><ProjectDetailsPage /> </IsPrivate> } />
+        <Route path="/moods" element={ <ProjectListPage />  } />
+        <Route path="/moods/:moodId" element={ <ProjectDetailsPage />  } />
         <Route path="/moods/edit/:moodId" element={<IsPrivate><EditProjectPage /> </IsPrivate>} />
         
         {/*    ADD    */}

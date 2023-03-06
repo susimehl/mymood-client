@@ -1,8 +1,7 @@
-// src/components/Navbar.js
-
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import DropDown from "./DropDown"
 
 function Navbar(props) {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -11,15 +10,21 @@ function Navbar(props) {
   //  depending on whether the user is logged in or not
   return (
     <nav>
-      <Link to="/homepage">
+      <Link to="/">
         <button>‰</button>
       </Link>
-      <Link to="/">
+
+      {isLoggedIn && (
+        <>
+      <Link to="/listmood">
         <button>BliSS</button>
       </Link>
       <Link to="/add-mood">
         <button>Add a mood</button>
       </Link>
+      <DropDown moods={props.moods} filterMoods={props.filterMoods} />
+      </>
+      )}
 
       {/*    UPDATE     */}
       {isLoggedIn && (
@@ -42,6 +47,8 @@ function Navbar(props) {
             {" "}
             <button>Login</button>{" "}
           </Link>
+        
+       
         </>
       )}
     </nav>

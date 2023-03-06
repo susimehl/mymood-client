@@ -6,14 +6,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(234, 255, 0);
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h1{
-  font-family: 'Roboto' ,Andalé Mono (monospace);
+.Intro img{
+  width:30vw;
+  height: 30vw;
+  padding-left: 100px;
+  margin-top: 30px;
 }
 nav {
   width: 100wv;
@@ -66,6 +70,44 @@ div.MoodCard img {
   height: auto;
   border-radius: 2em;
 }
+.dropdown {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 60px;
+  list-style-type: none;
+  margin: 5px 0;
+  padding: 0;
+  border-radius: 5px 5px 5px;
+
+  border: 1px solid grey;
+  width: 150px;
+}
+.menu li {
+  background-color: rgba(97, 4, 246, 0.596);
+
+}
+
+.menu li:hover {
+  background-color: rgb(97, 4, 246)
+}
+
+.menu li button {
+  text-align: left;
+  background-color: rgb(97, 4, 246);
+  border: none;
+  border-radius: 2px 2px 2px;
+  cursor: pointer;
+}
+
+.menu li button:hover {
+  background-color: rgb(231, 251, 5)
+
+}
+
+
 
 
 
