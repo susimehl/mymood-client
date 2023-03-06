@@ -5,8 +5,8 @@ function MoodsList(props) {
         
         {props.moods.map((mood) => {
           return (
-            <div className="MemeCard">
-              <img src={mood.imageUrl} alt="meme" />
+            <div className="MoodCard">
+              <img src={mood.imageUrl} alt="mood" />
               <h2>{mood.title}</h2>
               <p>{mood.source}</p>
               <p>{mood.topic}</p>

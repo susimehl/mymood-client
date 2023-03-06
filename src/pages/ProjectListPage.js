@@ -31,6 +31,7 @@ function ProjectListPage() {
 
   return (
     <div className="ProjectListPage">
+    <h2>hello</h2>
       <AddProject refreshProjects={getAllProjects} />
 
       {projects.map((project) => (

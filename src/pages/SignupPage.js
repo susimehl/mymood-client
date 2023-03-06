@@ -58,8 +58,7 @@ function SignupPage(props) {
         <label>Password:</label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        
 
         <button type="submit">Sign Up</button>
       </form>

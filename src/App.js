@@ -45,8 +45,11 @@ function App() {
 
   return (
     <div className="App">
+     
       <Navbar  moods={moods} filterMoods={filterMoods}/>
-      <Routes>      
+       <HomePage />
+      <Routes>   
+       
         <Route path="/" element={<MoodsList moods={filteredMoods} /> }/>
         <Route path="/add-mood" element={<AddMoodsPage getMoods={getMoods} />} />
         <Route path="/moods" element={ <IsPrivate><ProjectListPage /> </IsPrivate> } />
@@ -54,6 +57,7 @@ function App() {
         <Route path="/moods/edit/:moodId" element={<IsPrivate><EditProjectPage /> </IsPrivate>} />
         
         {/*    ADD    */}
+       
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon> } />
         <Route path="/login" element={ <IsAnon> <LoginPage /> </IsAnon> }/>
       </Routes>

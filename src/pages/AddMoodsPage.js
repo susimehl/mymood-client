@@ -73,6 +73,7 @@ function AddMoodsPage(props) {
           <option value="random">Random</option>
         </select>
         <button type="submit">Add moods</button>
+        
       </form>
     </div>
   );

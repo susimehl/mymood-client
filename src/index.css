@@ -12,6 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1{
+  font-family: 'Roboto' ,Andalé Mono (monospace);
+}
 nav {
   width: 100wv;
   height: 60px;
@@ -29,4 +32,40 @@ a {
   color: white;
   text-decoration: none;
 }
+div.MoodCard {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float:left;
+  width: 180px;
+  transition: 5s ease-in-out;
+  /*transition:width 2s, height 2s, background-color 2s, transform 2s;*/
+  border-radius: 2em  ;
+  /*display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-evenly;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: baseline;
+	align-content: flex-start;
+  background-image: linear-gradient(to top, #8912ff 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);*/
+  }
+
+
+div.MoodCard:hover {
+  border: 1px solid #8e8e8e;
+  scale: 1.1;
+  /*rotate:360deg;*/
+}
+div.MoodCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 2em;
+}
+
+
 

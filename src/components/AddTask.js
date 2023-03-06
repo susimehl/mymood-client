@@ -12,9 +12,9 @@ function AddTask(props) {
     e.preventDefault(); 
 
     // We need the project id when creating the new task
-    const { projectId } = props;
+    const { moodsId } = props;
     // Create an object representing the body of the POST request
-    const requestBody = { title, description, projectId };
+    const requestBody = { title, description, moodsId };
  
     // axios
     //   .post(
@@ -30,7 +30,7 @@ function AddTask(props) {
       
         // Invoke the callback function coming through the props
         // from the ProjectDetailsPage, to refresh the project details
-        props.refreshProject();
+        props.refreshMoods();
       })
       .catch((error) => console.log(error));
   };
