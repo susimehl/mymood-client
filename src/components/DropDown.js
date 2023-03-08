@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
+import {useLocation} from "react-router-dom"
 
 function DropDown({moods, filterMoods}) {
   const [open, setOpen] = useState(false)
   const [topics, setTopics] = useState([])
+  const location= useLocation();
+ 
 
   useEffect(() => {
     const uniqueTopics = moods
@@ -28,13 +31,15 @@ function DropDown({moods, filterMoods}) {
   return (
     <div className="DropDown">
       <button onClick={handleOpen}>Dropdown</button>
-      {open &&
+      {open && location.pathname === "/listmood" &&  
         <ul className="menu">
           {topics.map(topic => {
             return (
               <li className="menu-item"><button onClick={(e) => handleMenuItemClick(e)}>{topic}</button></li>
             )
           })}
+             <li className="menu-item"><button onClick={(e) => filterMoods("all")}>all</button></li>
+
         </ul>}
     </div>
   )

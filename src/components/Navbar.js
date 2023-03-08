@@ -2,14 +2,16 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import DropDown from "./DropDown"
+import {useLocation} from "react-router-dom"
 
 function Navbar(props) {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-
+  const location= useLocation();
+  console.log(location)
   //  Update the rendering logic to display different content
   //  depending on whether the user is logged in or not
   return (
-    <nav>
+    <nav className="container">
       <Link to="/">
         <button>‰</button>
       </Link>
@@ -25,6 +27,8 @@ function Navbar(props) {
       <DropDown moods={props.moods} filterMoods={props.filterMoods} />
       </>
       )}
+    
+      
 
       {/*    UPDATE     */}
       {isLoggedIn && (

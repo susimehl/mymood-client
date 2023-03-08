@@ -32,17 +32,30 @@ function App() {
   }
 
   const filterMoods = (topic) => {
-    const moodsFilteredByTopic = moods.filter(mood => {
+    if ( topic === "all" ){
+      setFilteredMoods(moods)
+    };
+    if (topic === "visual") {
+     setFilteredMoods(moods)
+     } else{const moodsFilteredByTopic = moods.filter(mood => {
       return mood.topic === topic
     })
 
     setFilteredMoods(moodsFilteredByTopic)
   }  
+      
+    }
+    
 
   useEffect(() => {
     getMoods()
   }, [])
 
+
+  
+
+
+  
   return (
     <div className="App">
      
@@ -52,7 +65,7 @@ function App() {
        <Route path="/" element={<HomePage />}/>
         <Route path="/listmood" element={<MoodsList moods={filteredMoods} /> }/>
         <Route path="/add-mood" element={<AddMoodsPage getMoods={getMoods} />} />
-        <Route path="/moods" element={ <ProjectListPage />  } />
+        <Route path="/moods" element={ <ProjectListPage  moods={filteredMoods} /> } />
         <Route path="/moods/:moodId" element={ <ProjectDetailsPage />  } />
         <Route path="/moods/edit/:moodId" element={<IsPrivate><EditProjectPage /> </IsPrivate>} />
         

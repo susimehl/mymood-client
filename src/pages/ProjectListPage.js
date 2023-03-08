@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import AddProject from "./../components/AddProject";
 import ProjectCard from "./../components/ProjectCard";
 import projectsService from "../services/projects.service";
 
 const API_URL = "http://localhost:5005";
 
-function ProjectListPage() {
+function ProjectListPage(props) {
   const [projects, setProjects] = useState([]);
 
   const getAllProjects = () => {
@@ -30,9 +28,19 @@ function ProjectListPage() {
   }, []);
 
   return (
-    <div className="ProjectListPage">
-    <h2>hello</h2>
-      <AddProject refreshProjects={getAllProjects} />
+    <div className="MoodsList">
+      <h1>†◊ee ∑nd Ωƒf Things</h1>
+
+      {props.moods.map((mood) => {
+        return (
+          <div className="MoodCard">
+            <img src={mood.imageUrl} alt="mood" />
+            <h2>{mood.title}</h2>
+            <p>{mood.source}</p>
+            <p>{mood.topic}</p>
+          </div>
+        );
+      })}
 
       {projects.map((project) => (
         <ProjectCard key={project._id} {...project} />
