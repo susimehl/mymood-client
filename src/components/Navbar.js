@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import DropDown from "./DropDown"
 import {useLocation} from "react-router-dom"
 
 function Navbar(props) {
@@ -20,11 +19,12 @@ function Navbar(props) {
         <>
       <Link to="/listmood">
         <button>BliSS</button>
+        
       </Link>
       <Link to="/add-mood">
         <button>Add a mood</button>
       </Link>
-      <DropDown moods={props.moods} filterMoods={props.filterMoods} />
+      
       </>
       )}
     

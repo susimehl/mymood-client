@@ -1,10 +1,12 @@
-
+import DropDown from "../components/DropDown";
 
 function MoodsList(props) {
   return (
     <div className="MoodsList">
-      <h1>†◊ee ∑nd Ωƒf Things</h1>
+    <DropDown moods={props.moods} filterMoods={props.filterMoods} />
 
+      <h1>†◊ee ∑nd Ωƒf Things</h1>
+      
       {props.moods.map((mood) => {
         return (
          

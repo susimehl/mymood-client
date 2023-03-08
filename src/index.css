@@ -80,7 +80,8 @@ div.MoodCard img {
   border-radius: 2em;
 }
 .dropdown {
-  position: relative;
+  position:sticky;
+
 }
 
 .menu {
@@ -114,6 +115,10 @@ div.MoodCard img {
 .menu li button:hover {
   background-color: rgb(231, 251, 5)
 
+}
+
+.PrivatMoodsPage button {
+  border-radius: 9px 9px 9px;
 }
 
   /*.container {

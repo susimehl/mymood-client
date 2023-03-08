@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import ProjectListPage from "./pages/ProjectListPage";
+import PrivatMoodsPage from "./pages/PrivatMoodsPage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import EditProjectPage from "./pages/EditProjectPage";
 
@@ -26,23 +26,31 @@ function App() {
     axios.get(`${API_URL}/api/moods`)
       .then(response => {
         setMoods(response.data)
-        setFilteredMoods(response.data)
+
+        const moodsFilteredByVisual = response.data.filter(mood => {
+          return mood.visual === "public"
+        })
+        setFilteredMoods(moodsFilteredByVisual)
       })
       .catch(err => console.log(err))
   }
 
   const filterMoods = (topic) => {
-    if ( topic === "all" ){
-      setFilteredMoods(moods)
-    };
-    if (topic === "visual") {
-     setFilteredMoods(moods)
-     } else{const moodsFilteredByTopic = moods.filter(mood => {
-      return mood.topic === topic
+    console.log(moods)
+    const moodsFilteredByVisual = moods.filter(mood => {
+      return mood.visual === "public"
     })
 
-    setFilteredMoods(moodsFilteredByTopic)
-  }  
+
+    if ( topic === "all"){
+      setFilteredMoods(moodsFilteredByVisual)
+    } else {
+      const moodsFilteredByTopic = moodsFilteredByVisual.filter(mood => {
+        return mood.topic === topic
+      })
+      setFilteredMoods(moodsFilteredByTopic)
+
+    }  
       
     }
     
@@ -65,7 +73,7 @@ function App() {
        <Route path="/" element={<HomePage />}/>
         <Route path="/listmood" element={<MoodsList moods={filteredMoods} /> }/>
         <Route path="/add-mood" element={<AddMoodsPage getMoods={getMoods} />} />
-        <Route path="/moods" element={ <ProjectListPage  moods={filteredMoods} /> } />
+        <Route path="/moods" element={ <PrivatMoodsPage  moods={moods} /> } />
         <Route path="/moods/:moodId" element={ <ProjectDetailsPage />  } />
         <Route path="/moods/edit/:moodId" element={<IsPrivate><EditProjectPage /> </IsPrivate>} />
         
