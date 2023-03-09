@@ -30,7 +30,7 @@ function DropDown({moods, filterMoods}) {
 
   return (
     <div className="DropDown">
-      <button onClick={handleOpen}>Dropdown</button>
+      <button onClick={handleOpen}>⏎</button>
       {open && location.pathname === "/listmood" &&  
         <ul className="menu">
           {topics.map(topic => {

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import ProjectCard from "../components/ProjectCard";
 import projectsService from "../services/projects.service";
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -36,21 +35,20 @@ e.preventDefault();
 //   )
 
 //projectsService.updatePrivatMoods(privatMoodsId, requestBody)    
- // .then((response) => {
- //   navigate(`/privatMoods/${privatMoodsId}`)
- // });
+//  .then((response) => {
+ //  navigate(`/privatMoods/${privatMoodsId}`)
+// });
 };
 
 
 const deletePrivatMoods = (privatMoodsId) => {
-
 // axios
 //   .delete(
 //     `${API_URL}/api/privatMoods/${privatMoodsId}`,
 //     { headers: { Authorization: `Bearer ${storedToken}` } }
 //   )
 projectsService.deletePrivatMoods(privatMoodsId)        
-  .then(() => navigate("/privatMoods"))
+  .then(() => props.getMoods())
   .catch((err) => console.log(err));
 };  
 
@@ -74,7 +72,7 @@ projectsService.deletePrivatMoods(privatMoodsId)
             <h2>{mood.title}</h2>
             <p>{mood.source}</p>
             <p>{mood.topic}</p>
-            <button onClick={() => deletePrivatMoods(mood._id)}>Delete</button>
+            <button onClick={() => deletePrivatMoods(mood._id)}>💔</button>
           </div>
         );
       })}

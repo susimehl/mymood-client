@@ -1,6 +1,7 @@
 import { useState } from "react";
-import tasksService from "../services/tasks.service";
+import axios from "axios";
 
+const API_URL = "http://localhost:5005";
 
 
 function AddTask(props) {
@@ -9,20 +10,15 @@ function AddTask(props) {
 
   
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     // We need the project id when creating the new task
-    const { moodsId } = props;
+    const { projectId } = props;
     // Create an object representing the body of the POST request
-    const requestBody = { title, description, moodsId };
- 
-    // axios
-    //   .post(
-    //     `${API_URL}/api/tasks`,
-    //     requestBody,
-    //     { headers: { Authorization: `Bearer ${storedToken}` } }
-    //   )
-    tasksService.createTask(requestBody)
+    const requestBody = { title, description, projectId };
+
+    axios
+      .post(`${API_URL}/api/tasks`, requestBody)
       .then((response) => {
         // Reset the state to clear the inputs
         setTitle("");
@@ -30,7 +26,7 @@ function AddTask(props) {
       
         // Invoke the callback function coming through the props
         // from the ProjectDetailsPage, to refresh the project details
-        props.refreshMoods();
+        props.refreshProject();
       })
       .catch((error) => console.log(error));
   };

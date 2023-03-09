@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import {useLocation} from "react-router-dom"
 
+
 function Navbar(props) {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const location= useLocation();
@@ -12,13 +13,14 @@ function Navbar(props) {
   return (
     <nav className="container">
       <Link to="/">
-        <button>‰</button>
+        <button class="glow-on-hover">‰</button>
       </Link>
 
       {isLoggedIn && (
         <>
       <Link to="/listmood">
         <button>BliSS</button>
+       
         
       </Link>
       <Link to="/add-mood">
@@ -36,7 +38,7 @@ function Navbar(props) {
           <Link to="/moods">
             <button>WHy?</button>
           </Link>
-          <button onClick={logOutUser}>Logout</button>
+          <button onClick={logOutUser}>Ω</button>
           <span>{user && user.name}</span>
         </>
       )}

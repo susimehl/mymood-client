@@ -35,12 +35,12 @@ class ProjectsService {
   }
 
   // PUT /api/projects/:id
-  updateProject = (id, requestBody) => {
+  updatePrivatMoods = (id, requestBody) => {
     return this.api.put(`/api/privatmoods/${id}`, requestBody);
   }
 
   // DELETE /api/projects/:id
-  deleteProject = (id) => {
+  deletePrivatMoods = (id) => {
     return this.api.delete(`/api/privatmoods/${id}`);
   } 
 

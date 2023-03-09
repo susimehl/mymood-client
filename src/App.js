@@ -16,6 +16,7 @@ import MoodsList from "./pages/MoodsList";
 import { useEffect, useState } from "react"
 import axios from "axios"
 
+
 const API_URL = "http://localhost:5005"
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const [filteredMoods, setFilteredMoods] = useState([])
 
   const getMoods = () => {
+    console.log("getmoodscalled")
     axios.get(`${API_URL}/api/moods`)
       .then(response => {
         setMoods(response.data)
@@ -73,7 +75,7 @@ function App() {
        <Route path="/" element={<HomePage />}/>
         <Route path="/listmood" element={<MoodsList moods={filteredMoods} /> }/>
         <Route path="/add-mood" element={<AddMoodsPage getMoods={getMoods} />} />
-        <Route path="/moods" element={ <PrivatMoodsPage  moods={moods} /> } />
+        <Route path="/moods" element={ <PrivatMoodsPage  moods={moods} getMoods={getMoods} /> } />
         <Route path="/moods/:moodId" element={ <ProjectDetailsPage />  } />
         <Route path="/moods/edit/:moodId" element={<IsPrivate><EditProjectPage /> </IsPrivate>} />
         
