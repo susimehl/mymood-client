@@ -73,7 +73,7 @@ function App() {
        
       <Routes>   
        <Route path="/" element={<HomePage />}/>
-        <Route path="/listmood" element={<MoodsList moods={filteredMoods} /> }/>
+        <Route path="/listmood" element={<MoodsList filterMoods={filterMoods} moods={filteredMoods} /> }/>
         <Route path="/add-mood" element={<AddMoodsPage getMoods={getMoods} />} />
         <Route path="/moods" element={ <PrivatMoodsPage  moods={moods} getMoods={getMoods} /> } />
         <Route path="/moods/:moodId" element={ <ProjectDetailsPage />  } />

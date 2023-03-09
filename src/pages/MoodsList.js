@@ -12,7 +12,7 @@ function MoodsList(props) {
         return (
          
             
-            <div className="MoodCard">
+            <div key={mood._id} className="MoodCard">
               <img src={mood.imageUrl} alt="mood" />
               <h2>{mood.title}</h2>
               <p>{mood.source}</p>

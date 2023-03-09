@@ -35,7 +35,7 @@ function DropDown({moods, filterMoods}) {
         <ul className="menu">
           {topics.map(topic => {
             return (
-              <li className="menu-item"><button onClick={(e) => handleMenuItemClick(e)}>{topic}</button></li>
+              <li key={topic._id} className="menu-item"><button onClick={(e) => handleMenuItemClick(e)}>{topic}</button></li>
             )
           })}
              <li className="menu-item"><button onClick={(e) => filterMoods("all")}>all</button></li>

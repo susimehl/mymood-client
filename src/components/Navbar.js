@@ -13,7 +13,7 @@ function Navbar(props) {
   return (
     <nav className="container">
       <Link to="/">
-        <button class="glow-on-hover">‰</button>
+        <button className="glow-on-hover">‰</button>
       </Link>
 
       {isLoggedIn && (
