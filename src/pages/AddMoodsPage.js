@@ -48,7 +48,7 @@ function AddMoodsPage(props) {
       const requestBody = { title, source, topic, imageUrl,visual };
 
       axios
-        .post("http://localhost:5005/api/moods", requestBody)
+        .post(`${API_URL}/api/moods`, requestBody)
         .then((response) => {
           props.getMoods();
           navigate("/");
