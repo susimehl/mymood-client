@@ -1,5 +1,5 @@
 /*import image from "../assets/exit.gif"*/
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import image from "../assets/okcanclewindows.gif"
 /*import image from "../assets/nosignal1.webp"*/
 import musicFile from "../audio/lifelike.mp3";

@@ -9,6 +9,7 @@ function AddMoodsPage(props) {
   const [imageUrl, setImageUrl] = useState("");
   const [visual, setVisual] = useState("privat");
 
+  const API_URL = process.env.REACT_APP_API_URL
 
   const navigate = useNavigate();
 
@@ -33,7 +34,7 @@ function AddMoodsPage(props) {
       uploadData.append("imageUrl", e.target.files[0]);
 
       axios
-        .post("http://localhost:5005/api/upload", uploadData)
+        .post(`${API_URL}/api/upload`, uploadData)
         .then((response) => {
           console.log(response.data.imageUrl);
           setImageUrl(response.data.imageUrl);
