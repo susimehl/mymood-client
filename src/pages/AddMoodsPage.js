@@ -32,6 +32,7 @@ function AddMoodsPage(props) {
       const uploadData = new FormData();
 
       uploadData.append("imageUrl", e.target.files[0]);
+      console.log(e.target.files)
 
       axios
         .post(`${API_URL}/api/upload`, uploadData)
